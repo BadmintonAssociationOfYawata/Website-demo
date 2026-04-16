@@ -1,0 +1,65 @@
+/*-- ヘッダー --*/
+#parts-header {
+    position: fixed;
+    top:0px;
+    width: 100%;
+    z-index: 1000;
+}
+
+/*-- メインコンテンツ --*/
+#parts-main {
+    margin-top: 160px;
+    margin-bottom: 10px;
+    padding:10px;
+    
+}
+
+/*-- 見出し --*/
+#parts-main h2 {
+    font-size:2rem;
+    color: var(--base_font_cl);
+    text-shadow: 0 0 2px white;
+    margin:20px 10px 10px 20px;
+}
+
+#parts-main h2:not(.page-title) {
+    position: relative;
+}
+
+#parts-main h2::before {
+    content: "";
+    position: absolute;
+    background: var(--accent_cl);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 50%;
+    left: -15px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+h2.page-title{
+    position:fixed;
+    top:120px;
+    left:0px;
+    padding-top:50px;
+    width:100%;
+    z-index: 999;
+    background-color: var(--base_bg_cl);
+}
+
+#parts-main h2.page-title::before {
+    top: calc(50% + 25px);
+}
+
+
+/*-- フッター --*/
+#parts-footer {
+    position:relative;
+    bottom:0px;
+    width: 100%;
+    z-index: 999;
+}
+

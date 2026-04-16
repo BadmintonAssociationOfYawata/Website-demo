@@ -1,0 +1,232 @@
+:root{
+    --border-size :3px;
+    --side-margin:400px;
+    --bg_cl: white;
+}
+/* events.css */
+#events-menu{
+    position: sticky;
+    display: flex;
+    top:230px;
+
+    margin:0 var(--side-margin) 0 var(--side-margin);
+
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 10px 0 0;
+    background-color: var(--base_bg_cl);
+    border-bottom: var(--main_cl) var(--border-size) solid;
+
+    z-index:998;
+}
+
+#events-years {
+    display: flex;
+    list-style: none;
+    padding:0;
+    
+    margin: 0;
+    z-index: 999;
+}
+
+
+#events-years li {
+    margin-right: 1px;
+    cursor: pointer;
+    position: relative;
+    width:100px;
+    text-align: center;
+    background-color: var(--base_bg_cl);
+    border: var(--main_cl) var(--border-size) solid;
+    border-bottom:none;
+    border-radius: 15px 15px 0 0;
+
+    z-index: 999;
+}
+
+#events-years li:hover {
+    background-color: var(--accent_cl);
+}
+
+#events-years li.active {
+    background-color: var(--bg_cl);
+    z-index:999;
+}
+
+#events-years li.active::after {
+    content: "";
+    position: absolute;
+    bottom: calc(var(--border-size)*-1);
+    transform: translateX(-50%);
+    width: 100%;
+    height: var(--border-size);
+    background-color: var(--bg_cl);
+    z-index: 999;
+}
+
+#events-years li a {
+    text-decoration: none;
+    padding: 10px 10px 0 10px;
+    color: var(--base_font_cl);
+    font-weight: bold;
+    display: block;
+}
+
+#events-contents {
+    z-index: 990;
+}
+
+#events-list-body {
+    background-color: var(--bg_cl);
+    position: relative;
+    display: block;
+    justify-content: flex-start;
+
+    border: var(--main_cl) var(--border-size) solid;
+    border-top:none;
+    margin: 60px var(--side-margin) 0px var(--side-margin);
+}
+
+#events-list-body ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+#events-list-body li {
+    
+    padding: 30px 30px 20px 180px;
+
+    
+    margin: 10px;
+    display:grid;
+    grid-template-columns: 650px 120px;
+    grid-template-rows: 30px 75px 75px;
+
+    width: 800px;
+
+    position: relative;
+}
+
+#events-list-body li p {
+    margin: 0;
+    
+}
+
+#events-list-body li .events-date {
+    grid-column:1;
+    grid-row:1;
+    padding-left:10px;
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+#events-list-body li .events-title {
+    display: flex;
+
+    grid-column: 1;
+    grid-row:2;
+
+    align-items: center;     /* 縦中央 */
+
+    font-size:2rem;
+    font-weight: bold;
+}
+
+#events-list-body li .events-eligibility-span {
+    grid-column:1;
+    grid-row: 3;
+
+    display:none;
+}
+
+#events-list-body li .events-eligibility-span.dispOn {
+    display:block;
+}
+
+#events-list-body li .events-desc {
+    grid-column:1;
+    grid-row: 3;
+}
+
+#events-list-body li .events-detail {
+    grid-column:2;
+    grid-row:2;
+}
+
+#events-list-body li .events-detail img:hover {
+    filter:brightness(1.2);
+}
+
+
+#events-list-body li .events-join {
+    grid-column:2;
+    grid-row:3;
+
+    display: none;
+}
+
+#events-list-body li .events-join.dispOn {
+    display: block;
+}
+
+
+#events-list-body li .events-join img:hover {
+    filter:brightness(1.2);
+}
+
+
+#events-list-body li .events-button {
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+#events-list-body li::after{
+    content: "";
+    position: absolute;
+    bottom:0px;
+    left: 10%;      /* 10%空ける → 80%の長さ */
+    width: 80%;      /* 横幅80% */
+    height: 0;       /* 横線の場合 */
+    border-bottom: var(--main_cl) 5px solid;
+}
+
+#events-list-body li:last-child:after{
+    border-bottom: none;
+}
+
+#events-list-body li.events-tournament::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 150px;
+    height: 150px;
+    background-image:url("../../COMMON/images/Pict/tournament.png");
+    background-position: center;
+    background-size:cover;
+}
+
+#events-list-body li.events-event::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 150px;
+    height: 150px;
+    background-image:url("../../COMMON/images/Pict/event.png");
+    background-position: center;
+    background-size:cover;
+
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../../COMMON/css/common.css">
+    <link rel="stylesheet" href="../../COMMON/css/index.css">
+    
+
+    <!-- JavaScript -->
+    <script src="../../COMMON/js/common.js"></script>
+    <script src="../../COMMON/js/index.js"></script>
+    <script src="../../COMMON/js/demoCheck.js"></script>
+    
+
+    <title>八幡市バドミントン協会</title>
+
+    <!-- メタデータ -->
+    <meta name="description" content="京都府八幡市のバドミントン協会のトップページです。協会の活動内容や大会情報、会員募集などを掲載しています。">
+</head>
+
+<body>
+    <!--デモモード時の目隠し-->
+    <div id="auth-overlay"></div>
+
+    <div id="contetns-body">    
+        <div id="parts-header">
+            <!-- JavaScriptでheader.htmlを読み込む -->
+        </div>
+        <div id="parts-main">
+            <!-- ページの内容 -->
+            <div id="index-top-image">
+                <img src="../../COMMON/images/Other/index/Court.png" alt="バドミントンコートの画像" />
+            </div>
+            <div id="index-intro">
+                <h2>八幡市バドミントン協会は2026年に30周年を迎えます</h2>
+                <p>
+                    皆様のおかげで、京都府八幡市のバドミントン協会は2026年に30周年を迎えます。
+                    <br>
+                    これまでの活動を振り返り、今後の展望を皆様と共有していきたいと思います。引き続き、八幡市バドミントン協会をよろしくお願いいたします。
+                </p>
+            </div>
+
+            <div id="index-updates">
+                <h2>最新情報</h2>
+                
+                <div class="index-updates-dots">
+                    <!-- ドット(JSで作成) -->
+                </div>
+                <button id="index-updates-prev" onclick="prevSlide()">
+                    <img src="../../COMMON/images/Pict/arrow3.png" alt="前へ" />
+                </button>
+                <div class="index-updates-area">
+                    <!-- 更新履歴(10個表示) -->
+                    <div id="index-updates-slider" class="index-updates-slider">
+                        <template id="index-updates-temp">
+                            <div class="index-updates-item">
+                                <h3 class="index-updates-date"></h3>
+                                <p class="index-updates-explain"></p>
+                                <div class="index-updates-image">
+                                    <img class="index-updates-image-img" />
+                                </div>
+                            </div>
+                        </template>
+
+                    </div>
+                </div>
+                <button id="index-updates-next" onclick="nextSlide()">
+                    <img src="../../COMMON/images/Pict/arrow3.png" alt="次へ" />
+                </button>
+            </div>
+
+            <div id="index-guide">
+                <div class="index-guide-item">
+                    <h4>協会について知りたい</h4>
+                    <a href="../html/about.html">
+                        <img src="../../COMMON/images/Other/index/about.jpg" alt="協会について" />
+                    </a>
+                </div>
+
+                <div class="index-guide-item">
+                    <h4>大会・イベントの情報が知りたい</h4>
+                    <a href="../html/events.html">
+                        <img src="../../COMMON/images/Other/index/events.jpg" alt="大会・イベントについて" />
+                    </a>
+                </div>
+
+                <!--　コラムが始まったら復活
+                <div class="index-guide-item">
+                    <h4>八幡市のバドミントン便利情報が知りたい</h4>
+                    <a href="../html/column.html">
+                        <img src="../../COMMON/images/Other/index/column.jpg" alt="八幡市バドミントンコラム" />
+                    </a>
+                </div>
+                -->
+
+                <div class="index-guide-item">
+                    <h4>お問い合わせ</h4>
+                    <a href="../html/contact.html">
+                        <img src="../../COMMON/images/Other/index/contact.jpg" alt="お問い合わせ" />
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="parts-footer">
+            <!-- JavaScriptでfooter.htmlを読み込む -->
+        </div>
+    </div>
+
+    <script>
+            window.addEventListener("load", async () => {
+                await checkDemoIndex();
+                loadHtml("parts-header", "../parts/header.html");
+                loadHtml("parts-footer", "../parts/footer.html");
+                
+                //ロード処理
+                initUpdateInfo();
+            });
+    </script>
+</body>
+
+</html>

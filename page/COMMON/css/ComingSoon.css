@@ -1,0 +1,13 @@
+/* ComingSoon.css */
+#ComingSoon-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:50vh;
+}
+
+#ComingSoon-image img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+}

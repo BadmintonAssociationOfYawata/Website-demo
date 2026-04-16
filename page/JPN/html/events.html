@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../../COMMON/css/common.css">
+    <link rel="stylesheet" href="../../COMMON/css/events.css">
+
+    <!-- JavaScript -->
+    <script src="../../COMMON/js/common.js"></script>
+    <script src="../../COMMON/js/events.js"></script>
+    <script src="../../COMMON/js/demoCheck.js"></script>
+
+    <title>八幡市バドミントン協会</title>
+
+    <!-- メタデータ -->
+    <meta name="description" content="京都府八幡市のバドミントン協会の大会やイベント情報のページです。大会のスケジュールや参加方法、過去の大会の結果などを掲載しています。">
+</head>
+
+<body>
+    <div id="auth-overlay"></div>
+
+    <div id="contetns-body"> 
+        <div id="parts-header">
+            <!-- JavaScriptでheader.htmlを読み込む -->
+        </div>
+        <div id="parts-main">
+            <h2 class="page-title">大会・イベント情報</h2>
+            <div id="events-menu">
+                <!-- イベントに表示する年情報　リンクのyearパラメータの指定が参照するフォルダ名　最新のものはactiveにすること　-->
+                <ul id="events-years">
+                    <li class="active"><a href="?year=2026">2026年</a></li>
+                    <li><a href="?year=2025">2025年</a></li>
+                    <li><a href="?year=2024">2024年</a></li>
+                </ul>
+            </div>
+            <!-- ページの内容 -->
+            <div id="events-contents">
+                <div  id="events-list-body"></div>
+                    <!-- JSでコンテンツを読み込む -->
+                    <template id="events-item">
+                        <p class="events-date"></p>
+                        <p class="events-join-date"></p>
+                        <p class="events-title"></p>
+                        <span class="events-desc">
+                            <span class="events-eligibility-span">参加資格：<span class="events-eligibility"></span></span>
+                            <span class="events-info"></span>
+                        </span>
+                        <a class="events-join" target="_blank"><img class="events-button" src="../images/Pict/join.png"></a>
+                        <a class="events-detail"><img class="events-button" src="../images/Pict/detail.png"></a>
+                    </template>
+                </div>
+            </div>
+        </div>
+        <div id="parts-footer">
+            <!-- JavaScriptでfooter.htmlを読み込む -->
+        </div>
+    </div>
+    <script>
+            window.addEventListener("load", () => {
+                checkDemo();
+                loadHtml("parts-header", "../parts/header.html", "header-nav-events");
+                loadHtml("parts-footer", "../parts/footer.html");
+                
+                //ロード処理
+                initEvents();
+            });
+    </script>
+</body>
+
+</html>

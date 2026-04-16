@@ -1,0 +1,50 @@
+//デモモードをONにする場合はtrueに設定すること
+const isDemo = true;
+const correctPass = "51baec737194e5dd4dd59694a3d33d39911d24f9066873dccab79ea4f7398038";
+
+async function checkDemoIndex() {
+    if (isDemo == false) {
+        checkOKProc();
+        return;
+    }
+
+    if(sessionStorage.getItem("auth") !== "ok"){
+        const pass = prompt("パスワードを入力してください");
+        const hashPass = await sha256(pass);
+
+        if ( hashPass == correctPass) {
+            sessionStorage.setItem("auth", "ok");
+            document.getElementById("auth-overlay")
+        } else {
+            window.location.href = `./401error.html`;
+        }
+    }
+
+    checkOKProc();
+}
+
+function checkDemo() {
+    if (isDemo == false) {
+        checkOKProc();
+        return;
+    }
+
+    if(sessionStorage.getItem("auth") !== "ok"){
+        window.location.href = `./401error.html`;
+    }
+
+    checkOKProc();
+}
+
+function checkOKProc() {
+    document.getElementById("auth-overlay").style.display = "none";
+}
+
+async function sha256(str){
+
+    const buf = new TextEncoder().encode(str);
+    const hash = await crypto.subtle.digest("SHA-256", buf);
+    return Array.from(new Uint8Array(hash))
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../../COMMON/css/common.css">
+    <link rel="stylesheet" href="../../COMMON/css/eventDetail.css">
+
+    <!-- JavaScript -->
+    <script src="../../COMMON/js/common.js"></script>
+    <script src="../../COMMON/js/events.js"></script>
+    <script src="../../COMMON/js/demoCheck.js"></script>
+
+    <title>八幡市バドミントン協会</title>
+
+    <!-- メタデータ -->
+    <meta name="description" content="京都府八幡市のバドミントン協会の大会やイベント情報のページです。大会のスケジュールや参加方法、過去の大会の結果などを掲載しています。">
+</head>
+
+<body>
+    <div id="auth-overlay"></div>
+
+    <div id="contetns-body"> 
+        <div id="parts-header">
+            <!-- JavaScriptでheader.htmlを読み込む -->
+        </div>
+        <div id="parts-main">
+            <div id="event-modal">
+                <img id="event-modal-img">
+            </div>
+            <div id="event-detail">
+                <div class="event-Breadcrumbs">
+                    <a class="breadcrumbs-prePage">大会・イベント</a>&nbsp;&gt;&nbsp;<span class="breadcrumbs-title"></span>
+                </div>
+
+                <div class="event-contents">
+                    <h2 class="event-title"></h2>
+                    <div class="detail-contents">
+                        <a class="event-join" target="_blank"><img class="event-button" src="../images/Pict/join.png"/></a>
+                        <span class="event-plan dispOn">
+                            <span class="event-date"></span>
+                            <span class="event-time">&nbsp;&nbsp;<span class="start-time"></span>&nbsp;開始&nbsp;～&nbsp;<span class="end-time"></span>&nbsp;終了予定&nbsp;</span>
+                        </span>
+                        <span class="event-pdf-space">
+                            <a class="event-pdf" target="_blank"><img class="event-button" src="../images/Pict/PDF_DL.png"/></a>
+                        </span>
+                        <span class="event-place event-content-grid">
+                            <span class="event-content-title">会場</span>
+                            <span class="event-content-delimiter">：</span>
+                            <span class="event-content-text"></span>
+                        </span>
+                        <span class="event-price event-content-grid">
+                            <span class="event-content-title">参加費</span>
+                            <span class="event-content-delimiter">：</span>
+                            <span class="event-content-text"></span>
+                        </span>
+                        <span class="event-eligibility event-content-grid">
+                            <span class="event-content-title">参加資格</span>
+                            <span class="event-content-delimiter">：</span>
+                            <span class="event-content-text"></span>
+                        </span>
+
+                        <span class="event-info event-content-grid">
+                            <span class="event-content-title">内容</span>
+                            <span class="event-content-delimiter">：</span>
+                            <span class="event-content-text"></span>
+                        </span>
+
+                        <span class="event-remark event-content-grid">
+                            <span class="event-content-title">注意事項</span>
+                            <span class="event-content-delimiter">：</span>
+                            <span class="event-content-text"></span>
+                        </span>
+
+                    </div>
+                </div>
+                <div id="Pict">
+                    <div id="event-result" class="event-pict-space">
+                        <h2 class="event-pict-title">結果</h2>
+                        <div class="event-pict-dots">
+                        <!-- ドット(JSで作成) -->
+                        </div>
+
+                        <button class="event-prev-button">
+                            <img src="../../COMMON/images/Pict/arrow3.png" alt="前へ" />
+                        </button>
+
+                        <div class="event-pict-area">
+                            <div class="event-pict-slider">
+                                <template class="event-pict-item-temp">
+                                    <div class="event-pict-item">
+                                        <img class="event-pict-image" />
+                                    </div>
+                                </template>
+
+                            </div>
+                        </div>
+
+                        <button class="event-next-button">
+                            <img src="../../COMMON/images/Pict/arrow3.png" alt="次へ" />
+                        </button>
+                    </div>
+
+                    <div id="event-program" class="event-pict-space">
+                        <h2 class="event-pict-title">プログラム</h2>
+                        <div class="event-pict-dots">
+                        <!-- ドット(JSで作成) -->
+                        </div>
+
+                        <button class="event-prev-button">
+                            <img src="../../COMMON/images/Pict/arrow3.png" alt="前へ" />
+                        </button>
+
+                        <div class="event-pict-area">
+                            <div class="event-pict-slider">
+                                <template class="event-pict-item-temp">
+                                    <div class="event-pict-item">
+                                        <img class="event-pict-image" />
+                                    </div>
+                                </template>
+
+                            </div>
+                        </div>
+
+                        <button class="event-next-button">
+                            <img src="../../COMMON/images/Pict/arrow3.png" alt="次へ" />
+                        </button>
+                    </div>
+
+                    <div id="event-photo-toyear" class="event-pict-space">
+                        <h2 class="event-pict-title">当日の様子</h2>
+                        <div class="event-pict-dots">
+                        <!-- ドット(JSで作成) -->
+                        </div>
+
+                        <button class="event-prev-button">
+                            <img src="../../COMMON/images/Pict/arrow3.png" alt="前へ" />
+                        </button>
+
+                        <div class="event-pict-area">
+                            <div class="event-pict-slider">
+                                <template class="event-pict-item-temp">
+                                    <div class="event-pict-item">
+                                        <img class="event-pict-image" />
+                                    </div>
+                                </template>
+
+                            </div>
+                        </div>
+
+                        <button class="event-next-button">
+                            <img src="../../COMMON/images/Pict/arrow3.png" alt="次へ" />
+                        </button>
+                    </div>
+
+                    <div id="event-photo-lastyear" class="event-pict-space">
+                        <h2 class="event-pict-title">昨年の様子</h2>
+                        <div class="event-pict-dots">
+                        <!-- ドット(JSで作成) -->
+                        </div>
+
+                        <button class="event-prev-button">
+                            <img src="../../COMMON/images/Pict/arrow3.png" alt="前へ" />
+                        </button>
+
+                        <div class="event-pict-area">
+                            <div class="event-pict-slider">
+                                <template class="event-pict-item-temp">
+                                    <div class="event-pict-item">
+                                        <img class="event-pict-image" />
+                                    </div>
+                                </template>
+
+                            </div>
+                        </div>
+
+                        <button class="event-next-button">
+                            <img src="../../COMMON/images/Pict/arrow3.png" alt="次へ" />
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="parts-footer">
+            <!-- JavaScriptでfooter.htmlを読み込む -->
+        </div>
+    </div>
+    <script>
+            window.addEventListener("load", () => {
+                checkDemo();
+                loadHtml("parts-header", "../parts/header.html", "header-nav-events");
+                loadHtml("parts-footer", "../parts/footer.html");
+                
+                //ロード処理
+                initEventDetail();
+            });
+    </script>
+</body>
+
+</html>

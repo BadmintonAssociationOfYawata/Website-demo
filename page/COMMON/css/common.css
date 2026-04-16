@@ -1,0 +1,31 @@
+@import url("header.css");
+@import url("footer.css");
+@import url("ComingSoon.css");
+@import url("contents_common.css");
+
+:root {
+    /*---------カラーパレット-------------*/
+    /*-- ⑩ Blue Horizon--*/
+    --main_cl: #0F4C81;
+    --sub_cl: #38BDF8;
+    --accent_cl: #FB923C;
+    --base_bg_cl: #F1F5F9;
+    --sub_bg_cl: #FFF7ED;
+    --base_font_cl: #0F172A;
+    --btn_cl: #FB923C;
+}
+
+body {
+    background-color: var(--base_bg_cl);
+    color: var(--base_font_cl);
+    margin: 0;
+}
+
+#auth-overlay{
+    position:fixed;
+    inset:0;
+    background:white;
+    z-index:9999;
+}
+
+

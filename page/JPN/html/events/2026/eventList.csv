@@ -1,0 +1,16 @@
+基本情報（上から順番に表示されます）,,,,（選択したい側に1を入力）,,イベント概要と合わせて３行になるように,,,,種目　または　イベント説明,,,,,,0：なし　1：あり（ある場合はevent[ID].htmlを作成すること,
+イベントID,表示OFF,開催年月日,イベント名,大会,イベント,参加資格,申込開始日,申込終了日,申込URL,イベント概要,イベント開始時間,イベント終了予定時間,会場,参加料,注意事項,特設ページ,昨年のイベントID
+1,,2026/2/22,第２８回　協会長杯　バドミントン大会,1,,市内在住・在学・在クラブで小学４年生以上及び審判のできる者,2026/4/6,2026/4/13,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,個人戦　男女別級別　混合級別　複（ダブルス）の種目を行います。<br>お楽しみ抽選会（景品あり）の実施を予定しています。,9:00,17:00,八幡市民体育館,１人 ２，０００円 （１ペア ４，０００円）,注意事項,0,1
+2,,2026/6/11,講習会　＆　合同練習会,,1,市内在住・在学・在クラブで小学１年生以上の者,2026/4/6,2026/4/14,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,講習会：コーチを迎えて、ラケットの握り方や基本の打法などを指導します。<br>練習会：参加者同士でゲームを行います。,,,,,,,
+3,1,2026/6/12,イベント３,,1,イベント３の概要,2026/4/6,2026/4/15,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,
+4,,2026/6/13,イベント４,1,,イベント４の概要,2026/4/7,2026/4/13,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,
+5,,2026/6/14,イベント５,,1,イベント５の概要,2026/4/7,2026/4/14,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,
+6,,2026/6/15,イベント６,1,,イベント６の概要,2026/4/7,2026/4/15,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,
+7,,2026/6/16,イベント７,,1,イベント７の概要,2026/4/8,2026/4/14,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,
+8,,2026/6/17,イベント８,1,,イベント８の概要,2026/4/8,2026/4/15,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,
+9,,2026/6/18,イベント９,,1,イベント９の概要,2026/4/9,2026/4/15,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,
+10,,2026/6/19,イベント１０,1,,イベント１０の概要,2026/4/7,2026/4/14,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,
+11,,2026/6/20,イベント１１,,1,イベント１１の概要,2026/4/7,2026/4/14,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,
+12,,2026/6/21,イベント１２,1,,イベント１２の概要,2026/4/7,2026/4/14,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,
+13,,2026/6/22,イベント１３,,1,イベント１３の概要,2026/4/7,2026/4/14,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,
+14,,2026/6/23,イベント１４,1,,イベント１４の概要,2026/4/7,2026/4/14,https://docs.google.com/forms/d/e/1FAIpQLScrALWM62bOgq_cgov5Vxi-P6ZIGLTYN8b1dEum6J8LEZxT3A/viewform?usp=publish-editor,　,,,,,,,

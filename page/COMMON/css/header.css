@@ -1,0 +1,214 @@
+/* 全体のスタイル */
+#header-body {
+    width: 100%;
+    margin: 0px;
+    background-color: var(--base_bg_cl);
+}
+
+/* ヘッダーのスタイル */
+.header-site {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+
+    align-items: flex-start;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+/* ロゴ部分のスタイル */
+#header-logo {
+    position: relative;
+}
+
+#header-logo h1 {
+    margin: 0;
+}
+
+#header-logo a{
+    display: block;
+    height: 150px;
+}
+
+.header-logo-img {
+    height: 150px;
+    width: auto;
+}
+
+/* ロゴ以外の要素のスタイル */
+#header-other {
+    flex: 1;
+    margin-left: 0px;
+    margin-right: 10px;
+    margin-top: 0px;
+
+    height: 150px;
+
+    display:grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto 1fr;
+}
+
+/* ヘッダーのボタン部分のスタイル */
+#header-button {
+    display:flex;
+
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* SNS選択部分のスタイル */
+.header-sns-select {
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    grid-column:2;
+    grid-row:1;
+
+    height: 32px;
+}
+
+.header-sns-select li {
+    margin-right: 10px;
+}
+
+.header-sns-select li a {
+    display: block;
+    width: 32px;
+    height: 32px;
+}
+
+.header-sns-select li a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-sns-select li a:hover img {
+    opacity: 0.6;
+}
+
+/** 言語選択部分のスタイル */
+
+.header-language {
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    grid-column:2;
+    grid-row:2;
+    margin:0px;
+
+    height: 32px;
+}
+
+.header-language li {
+    margin-right: 10px;
+}
+
+.header-language li a {
+    display: block;
+    width: 32px;
+    height: 32px;
+}
+
+.header-language li a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-language li a:hover img {
+    filter: brightness(1.2);
+}
+
+/* メニュー部分のスタイル */
+#header-menu {
+    flex: 1;
+    padding: 0;
+
+    grid-column:1 / span 2;
+    grid-row:3;
+}
+
+.header-nav {
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+}
+
+.header-nav li {
+    flex:1;
+    position: relative;
+    display: flex;
+    
+    padding:0px;
+}
+
+.header-nav li a {
+    flex:1;
+    text-decoration: none;
+    color: var(--base_font_cl);
+    font-weight: bold;
+
+    display: flex;
+
+    text-align: center;
+    align-items: center; 
+    justify-content: center;
+}
+
+.header-nav li::after {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    bottom: -4px;
+
+    height: 5px;
+
+    border-radius: 10px;
+
+    transform: translateX(-50%);
+}
+
+
+/** ホバーアニメーション */
+
+.header-nav li.inactive::after {
+    width: 0;
+    background: var(--sub_cl);
+    transition: width 0.3s ease;
+}
+
+.header-nav li.inactive:hover::after {
+    width:90%;
+}
+
+/** アクティブなメニューの装飾 */
+.header-nav li.active::after {
+    background: var(--main_cl);
+    width:90%;
+    background-image: url("../images/Pict/shuttle.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.header-nav li.active::before {
+    content: "";
+    position: absolute;
+
+    bottom: 0px;         /* 下に出す */
+    left: calc( 10% + 10px);
+    transform: translateX(-50%);
+
+    width: 20%;
+    height: 20px;
+
+    background-image: url("../images/Pict/shuttle.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+

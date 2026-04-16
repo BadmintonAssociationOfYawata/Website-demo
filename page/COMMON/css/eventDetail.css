@@ -1,0 +1,287 @@
+.event-Breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--base_font_cl);
+}
+
+.event-Breadcrumbs a {
+  color: var(--accent_cl);
+  text-decoration: none;
+}
+
+.event-Breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.detail-contents{
+    margin:0 600px 0 300px;
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    grid-template-rows: 50px 60px auto;
+}
+
+.detail-contents > *{
+    display:none;
+}
+
+.detail-contents > .dispOn{
+    display:revert;
+}
+
+.detail-contents > .event-content-grid.dispOn{
+    display:grid;
+}
+
+.detail-contents p {
+    margin:0;
+}
+
+.event-join{
+    margin-left: auto;
+    grid-row:1 span 2;
+    grid-column: 2;
+}
+
+.event-join img{
+    width:100%;
+}
+
+.event-join img:hover{
+    filter:brightness(1.2);
+}
+
+.event-pdf-space{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-pdf{
+    display:none;
+}
+
+.event-pdf.dispOn{
+    display:revert;
+}
+
+.event-pdf{
+    justify-content: center;
+    align-items: center;
+}
+
+.event-plan{
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.event-date{
+    font-size: 2rem;
+    font-weight:bold;
+}
+
+.event-time{
+    font-size: 1.2rem;
+    font-weight:bold;
+    align-self: end;
+}
+
+/** 詳細情報 */
+.event-content-grid{
+    grid-template-columns: 100px 25px 1fr;
+
+    grid-column: 1;
+
+    font-size: 1.2rem;
+    font-weight:bold;
+
+    padding: 0.5rem 0;
+}
+
+.event-content-grid.dispOn{
+    display: grid;
+}
+
+.event-content-title{
+    grid-column:1;
+    text-align: justify;   /* 均等配置 */
+    text-align-last: justify;
+}
+.event-content-delimiter{
+    grid-column:2;
+}
+.event-content-text{
+    grid-column:3;
+}
+
+.event-place{
+    grid-row:3;
+}
+
+/** 画像系 */
+.event-pict-space {
+    position: relative;
+    display: none;
+}
+
+.event-pict-space.dispOn{
+    display:block;
+}
+
+/** ボタン */
+
+.event-prev-button, .event-next-button {
+    position: absolute;
+    top: 50%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.event-prev-button {
+    left: 80px;
+}
+
+.event-next-button {
+    right: 80px;
+}
+
+.event-next-button img {
+    transform: scaleX(-1);
+}
+
+/** ドット部分 */
+.event-pict-dots {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+
+.event-pict-dots span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 10px;
+    background-color: var(--sub_cl);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, margin 0.3s ease;
+}
+
+.event-pict-dots span.active {
+    margin: 0 20px;
+    background-color: var(--main_cl);
+    transform:scale(1.5);
+}
+
+/** スライダー */
+.event-pict-slider {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    transition: transform 0.5s ease;
+    align-items: center;
+    
+}
+
+/** エリア */
+.event-pict-area {
+    display:flex;
+    position: relative;
+    height: 310px;
+    width:80%;
+    margin:auto;
+    overflow:hidden;
+    padding: 0 50px;
+    
+}
+
+/** アイテム */
+.event-pict-item {
+    display:flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    text-align: center;
+    margin: 0 10px;
+    height:240px;
+
+    border-radius: 12px;
+    background: var(--base_bg_cl);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    min-width: var(--inactiveItemMinWidht);
+
+    justify-content: center;
+    align-items: center;
+
+    /* アニメーション追加 */
+    transition: height 0.3s ease, min-width 0.3s ease;
+}
+
+.event-pict-item.active {
+    height:300px;
+    min-width: var(--activeItemMinWidht);
+
+    transform:scale(1);
+}
+
+
+/** 更新履歴　アイテム内の画像 */
+.event-pict-image {
+    display: block;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+/** モーダル部分 */
+#event-modal {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* 暗幕 */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#event-modal.show {
+  display: flex;
+  opacity: 1;
+
+  cursor: zoom-out;
+
+  pointer-events: auto;
+}
+
+#event-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+
+  transform: scale(0.8);
+  transition: transform 0.3s;
+}
+
+#event-modal.show img {
+  transform: scale(1);
+}

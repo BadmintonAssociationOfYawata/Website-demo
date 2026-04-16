@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../../COMMON/css/common.css">
+
+
+    <!-- JavaScript -->
+    <script src="../../COMMON/js/common.js"></script>
+    <script src="../../COMMON/js/demoCheck.js"></script>
+
+    <title>八幡市バドミントン協会</title>
+
+    <!-- メタデータ -->
+    <meta name="description" content="京都府八幡市のバドミントン協会のトップページです。協会の活動内容や大会情報、会員募集などを掲載しています。">
+</head>
+
+<body>
+    <div id="auth-overlay"></div>
+    
+    <div id="contetns-body">    
+        <div id="parts-header">
+            <!-- JavaScriptでheader.htmlを読み込む -->
+        </div>
+        <div id="parts-main">
+        </div>
+        <div id="parts-footer">
+            <!-- JavaScriptでfooter.htmlを読み込む -->
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("load", () => {
+            checkDemo();
+            loadHtml("parts-header", "../parts/header.html", "header-nav-about");
+            loadHtml("parts-main", "../parts/ComingSoon.html");
+            loadHtml("parts-footer", "../parts/footer.html");
+        });
+    </script>
+</body>
+
+</html>

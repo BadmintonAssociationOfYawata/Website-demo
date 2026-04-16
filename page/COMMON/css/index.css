@@ -1,0 +1,182 @@
+/* index.css */
+/* 最初の画像 */
+#index-top-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+#index-top-image img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/** 更新履歴 */
+#index-updates {
+    position: relative;
+    display: block;
+}
+
+/** 更新履歴 ボタン */
+#index-updates-prev, #index-updates-next {
+    position: absolute;
+    top: 50%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#index-updates-prev {
+    left: 80px;
+}
+
+#index-updates-next {
+    right: 80px;
+}
+
+#index-updates-next img {
+    transform: scaleX(-1);
+}
+
+/** 更新履歴 ドット部分 */
+.index-updates-dots {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+
+.index-updates-dots span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 10px;
+    background-color: var(--sub_cl);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, margin 0.3s ease;
+
+}
+
+.index-updates-dots span.active {
+    margin: 0 20px;
+    background-color: var(--main_cl);
+    transform:scale(1.5);
+}
+
+/** 更新履歴 エリア */
+.index-updates-area {
+    position: relative;
+    height: 310px;
+    width:80%;
+    margin:auto;
+    overflow:hidden;
+    padding: 0 50px;
+}
+
+/** 更新履歴 スライダー */
+.index-updates-slider {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    transition: transform 0.5s ease;
+}
+
+/** 更新履歴 アイテム */
+.index-updates-item {
+    display:flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    text-align: center;
+    padding: 20px;
+    margin: 0 10px;
+    height:150px;
+
+    border-radius: 12px;
+    background: var(--sub_bg_cl);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    /* アニメーション追加 */
+    transition: height 0.3s ease;
+}
+
+.index-updates-item.active {
+    height:300px;
+}
+
+.index-updates-item h3 {
+    margin: 0;
+}
+
+.index-updates-item p {
+    margin: 20px 0;
+}
+
+/** 更新履歴　アイテム内の画像 */
+.index-updates-image {
+    display: block;
+    overflow: hidden;
+
+    width:100%;
+
+    opacity:0;
+    transition: opacity 0s ease 0s;
+}
+
+.index-updates-item > * {
+    min-height: 0;
+}
+
+.index-updates-item.active .index-updates-image {
+    opacity: 1;
+    transition: opacity 0.2s ease 0.2s;
+}
+
+
+.index-updates-image img {
+    max-width:100%;
+    height:auto;
+    width:auto;
+    object-fit: contain;
+}
+
+.index-updates-item:hover .index-updates-image-img {
+    filter:brightness(1.2);
+}
+
+/** ガイド */
+#index-guide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.index-guide-item img {
+    width: auto;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.index-guide-item img::before {
+    content: "";
+}
+
+.index-guide-item img:hover {
+    filter:brightness(1.2);
+}
+
+
+.index-guide-item {
+    margin: 0 20px;
+    text-align: center;
+}
+

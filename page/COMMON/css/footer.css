@@ -1,0 +1,21 @@
+/* 全体のスタイル */
+.footer-site {
+    width: 100%;
+    margin: 0px;
+    background-color: var(--accent_cl);
+    color: var(--base_font_cl);
+    text-align: center;
+}
+
+.footer-site p{
+    margin:0px;
+}
+
+#footer-space {
+    height: 10px;
+    background-color: var(--base_bg_cl);
+}
+
+#footer-space p{
+    margin:0px;
+}
