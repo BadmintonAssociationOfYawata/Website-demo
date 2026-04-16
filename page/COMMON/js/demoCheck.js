@@ -2,8 +2,11 @@
 const isDemo = true;
 const correctPass = "51baec737194e5dd4dd59694a3d33d39911d24f9066873dccab79ea4f7398038";
 
+let waiteTime = 10;
+
 async function checkDemoIndex() {
     if (isDemo == false) {
+        waiteTime = 10;
         checkOKProc();
         return;
     }
@@ -14,13 +17,23 @@ async function checkDemoIndex() {
 
         if ( hashPass == correctPass) {
             sessionStorage.setItem("auth", "ok");
-            document.getElementById("auth-overlay")
+
+            alert(`ログイン成功です　${waiteTime}秒後に日本語ページに遷移します`);
+
         } else {
-            window.location.href = `./401error.html`;
+            window.location.href = `./page/JPN/html/401error.html`;
         }
     }
 
+    document.getElementById("count").innerHTML = waiteTime;
+    setTimeout(pastTime, 1000);
     checkOKProc();
+}
+
+function pastTime() {
+    waiteTime--;
+    document.getElementById("count").innerHTML = waiteTime;
+    setTimeout(pastTime, 1000);
 }
 
 function checkDemo() {

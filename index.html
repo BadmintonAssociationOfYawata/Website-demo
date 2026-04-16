@@ -7,7 +7,7 @@
   <title>八幡市バドミントン協会</title>
 
   <!-- SEO用 -->
-  <meta name="description" content="京都府八幡市のバドミントン協会公式サイト。大会情報、イベント、会員募集などを掲載しています。">
+  <meta name="description" content="京都府八幡市のバドミントン協会公式サイト。大会情報、イベント情報を掲載しています。">
 
   <!-- OGP -->
   <meta property="og:title" content="八幡市バドミントン協会">
@@ -15,23 +15,37 @@
   <meta property="og:type" content="website">
 
   <!-- 自動遷移（軽め・SEO許容） -->
-  <meta http-equiv="refresh" content="1; url=./page/JPN/html/index.html">
+  <meta http-equiv="refresh" content="10; url=./page/JPN/html/index.html">
+
+  <!--CSS-->
+  <link rel="stylesheet" href="./page/COMMON/css/common.css">
+
+  <!--JS-->
+  <script src="./page/COMMON/js/common.js"></script>
+  <script src="./page/COMMON/js/demoCheck.js"></script>
 
   <style>
     body {
-      font-family: sans-serif;
       text-align: center;
-      padding: 40px;
     }
+
     a {
       display: block;
       margin: 10px;
       font-size: 18px;
     }
+    img{
+      width: 80%;
+      height: auto;
+    }
   </style>
 </head>
 
 <body>
+  <div id="auth-overlay"></div>
+
+  <img src="./page/JPN/images/Logo/logo001.png" alt="八幡市バドミントン協会 ロゴ">
+
   <h1>八幡市バドミントン協会</h1>
 
   <p>
@@ -39,13 +53,16 @@
     大会情報、イベント、活動内容などをご覧いただけます。
   </p>
 
-  <h2>サイトへ進む</h2>
-
   <a href="./page/JPN/html/index.html">日本語ページへ</a>
   <!-- 海外ページ対応後に復帰
   <a href="./page/ENG/html/index.html">English</a>
     -->
 
-  <p>※自動で日本語ページに移動します</p>
+  <span id="count"></span><span>秒後に自動で日本語ページに移動します</span>
+  <script>
+    window.addEventListener("load", async () => {
+                await checkDemoIndex();
+            });
+  </script>
 </body>
 </html>
