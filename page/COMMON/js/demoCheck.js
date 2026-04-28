@@ -4,7 +4,7 @@ const correctPass = "51baec737194e5dd4dd59694a3d33d39911d24f9066873dccab79ea4f73
 
 let waiteTime = 10;
 
-async function checkDemoIndex() {
+function checkDemoIndex() {
     if (isDemo == false) {
         waiteTime = 10;
         checkOKProc();
@@ -13,7 +13,7 @@ async function checkDemoIndex() {
 
     if(sessionStorage.getItem("auth") !== "ok"){
         const pass = prompt("パスワードを入力してください");
-        const hashPass = await sha256(pass);
+        const hashPass = sha256(pass);
 
         if ( hashPass == correctPass) {
             sessionStorage.setItem("auth", "ok");
@@ -21,7 +21,9 @@ async function checkDemoIndex() {
             alert(`ログイン成功です　${waiteTime}秒後に日本語ページに遷移します`);
 
         } else {
+            alert(`ログイン失敗です`);
             window.location.href = `./page/JPN/html/401error.html`;
+            return;
         }
     }
 
@@ -33,7 +35,13 @@ async function checkDemoIndex() {
 function pastTime() {
     waiteTime--;
     document.getElementById("count").innerHTML = waiteTime;
-    setTimeout(pastTime, 1000);
+    if (waiteTime < 0) {
+        window.location.href = "./page/JPN/html/index.html";
+
+    } else {
+        setTimeout(pastTime, 1000); 
+    }
+    
 }
 
 function checkDemo() {
@@ -43,7 +51,7 @@ function checkDemo() {
     }
 
     if(sessionStorage.getItem("auth") !== "ok"){
-        window.location.href = `./401error.html`;
+        window.location.href = `../../../index.html`;
     }
 
     checkOKProc();
@@ -51,13 +59,4 @@ function checkDemo() {
 
 function checkOKProc() {
     document.getElementById("auth-overlay").style.display = "none";
-}
-
-async function sha256(str){
-
-    const buf = new TextEncoder().encode(str);
-    const hash = await crypto.subtle.digest("SHA-256", buf);
-    return Array.from(new Uint8Array(hash))
-        .map(b => b.toString(16).padStart(2, "0"))
-        .join("");
 }

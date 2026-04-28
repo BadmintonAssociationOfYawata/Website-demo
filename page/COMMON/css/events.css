@@ -123,7 +123,6 @@
 #events-list-body li .events-date {
     grid-column:1;
     grid-row:1;
-    padding-left:10px;
     font-size:1.2em;
     font-weight: bold;
 }
@@ -229,4 +228,86 @@
     background-position: center;
     background-size:cover;
 
+}
+
+@media screen and (max-width: 768px) {
+    
+    :root{
+        --side-margin:0px;
+    }
+
+    #events-menu{
+        top: 110px;
+        margin: 0 var(--side-margin);
+        padding: 20px 0 0 0;
+    }
+
+    #events-years li{
+        width: 80px;
+    }
+
+    #events-list-body{
+        margin: 10px var(--side-margin) 0 var(--side-margin);
+    }
+
+    #events-list-body li{
+        width: 100%;
+        margin: 8px;
+        padding: 10px;
+
+        grid-template-columns: 70px 1fr 1fr;
+        grid-template-rows: auto auto auto auto auto;
+    }
+
+
+    #events-list-body li .events-date{
+        grid-column: 2 / span 2;
+        grid-row: 1;
+        font-size: 1rem;
+    }
+
+    #events-list-body li .events-title{
+        grid-column: 2 / span 2;
+        grid-row: 2;
+        font-size: 0.9rem;
+    }
+
+    #events-list-body li .events-eligibility-span{
+        grid-column: 1 / span 3;
+        grid-row: 3;
+        font-size: 0.7rem;
+    }
+
+    #events-list-body li .events-desc{
+        grid-column: 1 / span 3;
+        grid-row: 4;
+        font-size: 0.7rem;
+    }
+
+    #events-list-body li .events-detail{
+        grid-column: 2;
+        grid-row: 5;
+        width: 120px;
+    }
+
+    #events-list-body li .events-join{
+        grid-column: 3;
+        grid-row: 5;
+        width: 120px;
+    }
+
+    #events-list-body li::after{
+        left: 0;
+        width: 100%;
+    }
+
+    #events-list-body li.events-tournament::before,
+    #events-list-body li.events-event::before{
+        position: static;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        width: 60px;
+        height: 60px;
+        transform: translateY(0);
+    }
 }

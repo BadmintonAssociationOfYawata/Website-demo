@@ -22,7 +22,9 @@ const lastYearEventID = 17;
 
 // グローバル変数
 let currentIndex = 0;
-const itemsPerView = 5; // 画面に見える枚数
+let itemsPerView; // 画面に見える枚数
+
+const isMobile = document.documentElement.clientWidth <= 768;
 
 
 function initEvents() {
@@ -274,6 +276,12 @@ async function initEventDetail() {
   
             //画像部分
 
+            if (isMobile) {
+                itemsPerView = 1;
+            } else {
+                itemsPerView = 5;
+            }
+
             //結果があれば結果、なければプログラム、両方なければ表示なし
             getImgFullFileURL(yearParam, idParam, "result", "1")
             .then( url => {
@@ -356,6 +364,7 @@ function loadImage(yearParam, idParam, folderNm, targetPictSpaceEle, fileNameInd
 
 // 画像表示の初期化
 function initPict(target){
+
     //モーダル
     const modal = document.getElementById("event-modal");
     const modalImg = document.getElementById("event-modal-img");
@@ -435,7 +444,80 @@ function initPict(target){
     }
 
     goToSlide(0 , target);
+    if ( isMobile ) {
+        initPictSwipe(target);
+    }
 
+}
+
+function initPictSwipe(target) {
+    const area = target.querySelector(".event-pict-area");
+    const slider = area.querySelector(".event-pict-slider");
+
+    if (!area || !slider) {
+        return;
+    }
+
+    // 画面幅ベースで閾値を決める（重要）
+    const threshold = area.clientWidth * 0.2;
+
+    let startX = 0;
+    let startY = 0;
+    let diffX = 0;
+    let diffY = 0;
+    let currentX = 0;
+
+    let isDragging  = false;
+
+    area.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+
+        isDragging = false;
+
+        const style = window.getComputedStyle(slider);
+        const matrix = new DOMMatrixReadOnly(style.transform);
+
+        currentX = matrix.m41;
+
+    }, { passive: true });
+
+    area.addEventListener("touchmove", (e) => {
+        diffX = e.touches[0].clientX - startX;
+        diffY = e.touches[0].clientY - startY;;
+
+        if (!isDragging) {
+            // 横スワイプと判断したらスクロール止める
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                isDragging = true;
+                e.preventDefault();
+            }
+        }
+        if (isDragging) {
+            let scale = 0;
+            if (diffX > 0) {
+                scale = 1;
+            } else {
+                scale = -1;
+            }
+
+            slider.style.transform = `translateX(${currentX + (scale * threshold)}px)`;
+        }
+    }, { passive: false });
+
+    area.addEventListener("touchend", (e) => {
+        if (isDragging) {
+            slider.style.transform = `translateX(${currentX}px)`;
+            if (Math.abs(diffX) >= threshold) {
+                if (diffX > 0) {
+                    prevSlide(target);
+                } else {
+                    nextSlide(target);
+                }
+            }
+        } 
+        isDragging = false;
+    });
 }
 
 // スライド操作 次へ

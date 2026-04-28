@@ -2,7 +2,7 @@
 let currentIndex = 0;
 
 //グローバル定数
-const itemsPerView = 4; // 画面に見える枚数
+let itemsPerView; // 画面に見える枚数
 
 const itemsMaxCount = 10;
 
@@ -13,8 +13,16 @@ const updatesImgFile = 2;
 const updatesImgAlt = 3;
 const updatesURL = 4;
 
+const isMobile = document.documentElement.clientWidth <= 768;
+
 // 最新情報を初期化
 function initUpdateInfo(){
+
+    if (isMobile) {
+        itemsPerView = 1;
+    } else {
+        itemsPerView = 4;
+    }
 
     //最新情報の読み込み
     loadUpdatesData().then(result => {
@@ -64,8 +72,81 @@ function initUpdateInfo(){
             document.querySelector('.index-updates-dots').appendChild(dot);
         }
         goToSlide();
+        if (isMobile) {
+            initUpdateSwipe();
+        }
     });
 
+}
+
+function initUpdateSwipe() {
+    const area = document.querySelector(".index-updates-area");
+    const slider = document.getElementById("index-updates-slider");
+
+    if (!area || !slider) {
+        return;
+    }
+
+    // 画面幅ベースで閾値を決める（重要）
+    const threshold = area.clientWidth * 0.2;
+
+    let startX = 0;
+    let startY = 0;
+    let diffX = 0;
+    let diffY = 0;
+    let currentX = 0;
+
+    let isDragging  = false;
+
+    area.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+
+        isDragging = false;
+
+        const style = window.getComputedStyle(slider);
+        const matrix = new DOMMatrixReadOnly(style.transform);
+
+        currentX = matrix.m41;
+
+    }, { passive: true });
+
+    area.addEventListener("touchmove", (e) => {
+        diffX = e.touches[0].clientX - startX;
+        diffY = e.touches[0].clientY - startY;;
+
+        if (!isDragging) {
+            // 横スワイプと判断したらスクロール止める
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                isDragging = true;
+                e.preventDefault();
+            }
+        }
+        if (isDragging) {
+            let scale = 0;
+            if (diffX > 0) {
+                scale = 1;
+            } else {
+                scale = -1;
+            }
+
+            slider.style.transform = `translateX(${currentX + (scale * threshold)}px)`;
+        }
+    }, { passive: false });
+
+    area.addEventListener("touchend", (e) => {
+        if (isDragging) {
+            slider.style.transform = `translateX(${currentX}px)`;
+            if (Math.abs(diffX) >= threshold) {
+                if (diffX > 0) {
+                    prevSlide();
+                } else {
+                    nextSlide();
+                }
+            }
+        } 
+        isDragging = false;
+    });
 }
 
 function loadUpdatesData() {
@@ -157,7 +238,7 @@ function nextSlide() {
     
     if(currentIndex < itemsCnt - 1){
         currentIndex++;
-        goToSlide(currentIndex);
+        goToSlide();
     }
 }
 
@@ -165,28 +246,40 @@ function nextSlide() {
 function prevSlide() {
     if(currentIndex > 0){
         currentIndex--;
-        goToSlide(currentIndex);
+        goToSlide();
     }
 }
 
 // スライド移動
 function goToSlide(){
     //スライダーの移動
+    const area = document.querySelector('.index-updates-area');
     const slider = document.querySelector('.index-updates-slider');
+    const items = document.querySelectorAll('.index-updates-item');
 
-    const itemsCnt = document.querySelectorAll('.index-updates-item').length;
+    const itemsCnt = items.length;
+
+    // 1枚分の実際の横幅（margin込み）を取る
+    const itemRect = items[currentIndex].getBoundingClientRect();
+    const itemStyle = window.getComputedStyle(items[currentIndex]);
+    const marginLeft = parseFloat(itemStyle.marginLeft) || 0;
+    const marginRight = parseFloat(itemStyle.marginRight) || 0;
+    const itemFullWidth = itemRect.width + marginLeft + marginRight;
+
     let XPos = 0;
 
     if (itemsCnt > itemsPerView) {
-         XPos = currentIndex * ( 100 / itemsPerView );
+         XPos = items[currentIndex].offsetLeft - (area.clientWidth - items[currentIndex].offsetWidth) / 2;
     }
 
-    const maxXPos = (itemsCnt - itemsPerView) * ( 100 / itemsPerView ) + 2; // スライドの最大位置（2%は余白分）
+    const maxXPos = (itemsCnt - itemsPerView) * itemFullWidth; // スライドの最大位置（2%は余白分）
 
-    if ( XPos < maxXPos ) {
-        slider.style.transform = `translateX(${XPos * -1}%)`;
+    if( XPos <= 0 ) {
+        slider.style.transform = `translateX(0px)`;
+    } else if(XPos >= maxXPos ) {
+        slider.style.transform = `translateX(${maxXPos * -1}px)`;
     } else {
-        slider.style.transform = `translateX(${maxXPos * -1}%)`;
+        slider.style.transform = `translateX(${XPos * -1}px)`;
     }
 
     // ドットのアクティブ切り替え
@@ -197,7 +290,6 @@ function goToSlide(){
     dots[currentIndex].classList.add('active');
 
     //　更新カードのアクティブ切り替え
-    const items = document.querySelectorAll('.index-updates-item');
     items.forEach(item => {
         item.classList.remove('active');
     });

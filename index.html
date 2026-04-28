@@ -14,13 +14,11 @@
   <meta property="og:description" content="八幡市バドミントン協会の公式サイトです。">
   <meta property="og:type" content="website">
 
-  <!-- 自動遷移（軽め・SEO許容） -->
-  <meta http-equiv="refresh" content="10; url=./page/JPN/html/index.html">
-
   <!--CSS-->
   <link rel="stylesheet" href="./page/COMMON/css/common.css">
 
   <!--JS-->
+  <script src="./page/COMMON/js/sha256.min.js"></script>
   <script src="./page/COMMON/js/common.js"></script>
   <script src="./page/COMMON/js/demoCheck.js"></script>
 
@@ -60,8 +58,8 @@
 
   <span id="count"></span><span>秒後に自動で日本語ページに移動します</span>
   <script>
-    window.addEventListener("load", async () => {
-                await checkDemoIndex();
+    window.addEventListener("load", () => {
+                checkDemoIndex();
             });
   </script>
 </body>

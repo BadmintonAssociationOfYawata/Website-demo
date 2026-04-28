@@ -11,3 +11,9 @@
     width: auto;
     object-fit: contain;
 }
+
+@media screen and (max-width: 768px) {
+    #ComingSoon-image img {
+    width: 100%;
+}
+}

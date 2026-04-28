@@ -52,6 +52,7 @@
 }
 
 .event-pdf-space{
+    grid-column:1;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -59,16 +60,14 @@
 
 .event-pdf{
     display:none;
+    justify-content: center;
+    align-items: center;
 }
 
 .event-pdf.dispOn{
     display:revert;
 }
 
-.event-pdf{
-    justify-content: center;
-    align-items: center;
-}
 
 .event-plan{
     grid-row: 1;
@@ -88,11 +87,11 @@
 
 /** 詳細情報 */
 .event-content-grid{
-    grid-template-columns: 100px 25px 1fr;
+    grid-template-columns: 70px 25px auto;
 
     grid-column: 1;
 
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight:bold;
 
     padding: 0.5rem 0;
@@ -284,4 +283,78 @@
 
 #event-modal.show img {
   transform: scale(1);
+}
+
+@media screen and (max-width: 768px) {
+
+    /** タイトル **/
+    #parts-main h2 {
+        font-size: 1.15rem;
+    }
+
+    /** 詳細 **/
+    .detail-contents{
+        margin:0 10px 0 10px;
+
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .detail-contents span{
+        font-size:0.8rem;
+    }
+
+    .event-plan{
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    .event-join{
+        grid-row:1;
+        grid-column: 2;
+    }
+
+    .detail-contents span .event-date{
+        display: block;
+        font-size: 1rem;
+    }
+
+    .detail-contents span .event-time{
+        font-size: 0.8rem;
+    }
+
+    .event-content-grid{
+        grid-column: 1 / span 2;
+
+    }
+
+    .event-pdf-space{
+        grid-column: 1 / span 2;
+        grid-row:98;
+    }
+
+    .event-pdf img{
+        width: 100%;
+    }
+
+    /** 画像部分 **/
+    .event-next-button,
+    .event-prev-button {
+        display:none;
+    }
+
+    .event-pict-area {
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .event-pict-slider {
+        width: 100%;
+    }
+
+    .event-pict-item {
+        margin: 0 10px;
+    }
+
 }

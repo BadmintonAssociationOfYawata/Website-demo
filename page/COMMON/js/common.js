@@ -5,8 +5,13 @@ function loadHtml(id, path, currentPage = "") {
             document.getElementById(id).innerHTML = data;
 
             if (currentPage != "") {
-                document.getElementById(currentPage).className = "active";
+              document.getElementById(currentPage).className = "active";
             }
+
+            if (path  == "../parts/header.html") {
+              initHamburgerMenu();
+            }
+
         })
         .catch(err => {
             console.error(`読み込み失敗 [id=${id}] [path=${path}]`, err);
@@ -52,4 +57,32 @@ function parseCSV(text) {
   rows.push(row);
 
   return rows;
+}
+
+function initHamburgerMenu() {
+  const hamburger = document.getElementById("hamburger-menu");
+
+  if ( hamburger.style.display == "none" ) {
+    return;
+  }
+
+  const button = hamburger.querySelector("button");
+
+  if (!button) {
+    return;
+  }
+
+  button.addEventListener("click", () => {
+    const menu = document.getElementById("header-other");
+    if (menu.classList.contains("open")) {
+      document.getElementById("header-other").classList.remove("open");
+      document.body.classList.remove("no-scroll");
+      button.innerHTML="☰"
+    } else {
+      document.getElementById("header-other").classList.add("open");
+      document.body.classList.add("no-scroll");
+      button.innerHTML="×"
+    }
+    
+  });
 }
