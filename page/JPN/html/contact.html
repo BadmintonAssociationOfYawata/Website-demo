@@ -7,6 +7,7 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="../../COMMON/css/common.css">
+    <link rel="stylesheet" href="../../COMMON/css/contact.css">
 
 
     <!-- JavaScript -->
@@ -27,6 +28,31 @@
             <!-- JavaScriptでheader.htmlを読み込む -->
         </div>
         <div id="parts-main">
+            <div id="parts-main">
+            <!-- ページの内容 -->
+            <div>
+                <h2>お問い合わせ</h2>
+                <p id="contact-contents">
+                    <span id="contact-inq">お問い合わせはGoogleFormからお願いします。</span>
+                    <br>
+                    ご入力いただいた個人情報は、お問い合わせ対応の目的のみに使用し、第三者へ提供することはありません。適切に管理し、目的外には利用いたしません。
+                    <br>
+                    <br>
+                    お問い合わせの回答は1週間以内にご連絡いたします。
+                    <br>
+                    1週間を超えても返信がない場合は、恐れ入りますが再度お問い合わせいただきますようお願いいたします。
+                    <br>
+                    <br>
+                    ご回答はGmail（Googleのメールサービス）よりお送りいたします。
+                    <br>
+                    受信制限を設定されている場合は、受信できるようご設定をお願いいたします。
+                </p>
+
+                <a target="_blank" href="https://forms.gle/pdYLcGrWnCMDwiWb9">
+                    <img id="contact-form" src="../../COMMON/images/Other/Contact/ContactForm.png">
+                </a>
+            </div>
+
         </div>
         <div id="parts-footer">
             <!-- JavaScriptでfooter.htmlを読み込む -->
@@ -37,7 +63,6 @@
         window.addEventListener("load", () => {
             checkDemo();
             loadHtml("parts-header", "../parts/header.html", "header-nav-contact");
-            loadHtml("parts-main", "../parts/ComingSoon.html");
             loadHtml("parts-footer", "../parts/footer.html");
         });
     </script>

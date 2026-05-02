@@ -1,0 +1,30 @@
+/* contact.css */
+/* 最初の画像 */
+#contact-inq{
+    font-size:2rem;
+}
+
+#contact-contents{
+    line-height: 2;
+    text-align: center;
+}
+
+#contact-form{
+    display: block;
+    width: 250px;
+    height: auto;
+    border: solid 1px;
+    margin: 30px auto 0;
+}
+
+#contact-form:hover{
+    filter:brightness(1.1);
+}
+
+
+/** スマホ対応 **/
+@media screen and (max-width: 768px) {
+
+ 
+
+}
