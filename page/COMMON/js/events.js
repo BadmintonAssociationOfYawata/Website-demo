@@ -19,6 +19,7 @@ const eventPrice = 14;
 const eventRemark = 15;
 const eventSPHetml = 16;
 const lastYearEventID = 17;
+const dispDetail = 18;
 
 // グローバル変数
 let currentIndex = 0;
@@ -129,7 +130,11 @@ function loadEventsList(yearParam) {
                     item.querySelector(".events-join").href = row[eventRegistURL];
                 }
             }
-            item.querySelector(".events-detail").href = `./eventDetail.html?year=${yearParam}&eventid=${row[eventID]}`;
+            if ( row[dispDetail] != 1 ) {
+                item.querySelector(".events-detail").classList.add("dispOn");
+                item.querySelector(".events-detail").href = `./eventDetail.html?year=${yearParam}&eventid=${row[eventID]}`;
+            }
+                
 
             li.appendChild(item);
             ul.appendChild(li);
@@ -227,13 +232,18 @@ async function initEventDetail() {
             detailContents.querySelector(".event-date").textContent = formatDate(row[eventDate]);
 
             //時間
-            detailContents.querySelector(".start-time").textContent = row[eventTimeFrom];
-            detailContents.querySelector(".end-time").textContent = row[eventTimeTo];
+            if (row[eventTimeFrom] != "" && row[eventTimeTo] != "") {
+                detailContents.querySelector(".start-time").textContent = row[eventTimeFrom];
+                detailContents.querySelector(".end-time").textContent = row[eventTimeTo];
+                detailContents.querySelector(".event-time").classList.add("dispOn");
+            }
+            
 
             //PDFダウンロード
             fetch(`./events/${yearParam}/event${idParam}.pdf`, {method: "HEAD" })
             .then(res => {
                 if ( res.ok ) {
+                    detailContents.querySelector(".event-pdf-space").classList.add("dispOn");
                     detailContents.querySelector(".event-pdf").classList.add("dispOn");
                     detailContents.querySelector(".event-pdf").href = `./events/${yearParam}/event${idParam}.pdf`
                 }

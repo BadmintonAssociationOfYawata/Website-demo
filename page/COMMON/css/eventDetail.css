@@ -53,10 +53,15 @@
 
 .event-pdf-space{
     grid-column:1;
-    display: inline-flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
+
+.event-pdf-space.dispOn{
+    display: inline-flex;
+}
+
 
 .event-pdf{
     display:none;
@@ -83,7 +88,13 @@
     font-size: 1.2rem;
     font-weight:bold;
     align-self: end;
+    display: none;
 }
+
+.event-time.dispOn{
+    display: inline-block;
+}
+
 
 /** 詳細情報 */
 .event-content-grid{
@@ -208,7 +219,7 @@
     height:240px;
 
     border-radius: 12px;
-    background: var(--base_bg_cl);
+    background: var(--sub_bg_cl);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 
     overflow: hidden;
@@ -239,8 +250,9 @@
 
     width: 100%;
     height: 100%;
+    
 
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 

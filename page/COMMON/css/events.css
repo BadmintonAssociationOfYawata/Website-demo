@@ -158,6 +158,11 @@
 #events-list-body li .events-detail {
     grid-column:2;
     grid-row:2;
+    display: none;
+}
+
+#events-list-body li .events-detail.dispOn {
+    display: block;
 }
 
 #events-list-body li .events-detail img:hover {
@@ -288,6 +293,7 @@
         grid-column: 2;
         grid-row: 5;
         width: 120px;
+
     }
 
     #events-list-body li .events-join{
