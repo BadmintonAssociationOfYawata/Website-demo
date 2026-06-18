@@ -267,7 +267,7 @@
   background: rgba(0, 0, 0, 0.8); /* 暗幕 */
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 2000;
 
   pointer-events: none;
 
